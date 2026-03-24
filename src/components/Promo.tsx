@@ -83,7 +83,7 @@ export default function Promo() {
           </div>
 
           <p className="text-[hsl(44,70%,70%)] uppercase tracking-[0.5em] text-xs mt-6">
-            Василий & Мария · 12.09.2026
+            Василий & Мария · 01.09.2026
           </p>
         </motion.div>
       </div>

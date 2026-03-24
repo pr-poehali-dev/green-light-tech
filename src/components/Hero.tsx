@@ -1,7 +1,7 @@
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
-const WEDDING_DATE = new Date("2026-09-12T14:00:00");
+const WEDDING_DATE = new Date("2026-09-01T14:00:00");
 
 function Countdown() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -172,7 +172,7 @@ export default function Hero() {
           className="mt-8"
         >
           <p className="text-[hsl(44,70%,70%)] uppercase tracking-[0.5em] text-sm">
-            12 сентября 2026
+            1 сентября 2026
           </p>
           <p className="text-white/60 text-sm mt-1 tracking-widest uppercase">
             Санкт-Петербург

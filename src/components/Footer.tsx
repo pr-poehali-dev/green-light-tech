@@ -132,7 +132,7 @@ export default function Footer() {
                   Строгановы
                 </h1>
                 <div className="text-right shrink-0">
-                  <p className="text-[hsl(44,70%,62%)] text-sm mb-1">12 сентября 2026</p>
+                  <p className="text-[hsl(44,70%,62%)] text-sm mb-1">1 сентября 2026</p>
                   <p className="text-white/40 text-xs">Санкт-Петербург</p>
                 </div>
               </div>
