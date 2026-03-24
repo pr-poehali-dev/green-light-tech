@@ -103,15 +103,6 @@ function StorySection() {
 function VenueSection() {
   const venues = [
     {
-      id: "ceremony",
-      label: "Церемония",
-      name: "Дворец бракосочетания №2",
-      address: "Фурштатская ул., 52, Санкт-Петербург",
-      time: "19:00",
-      description: "Дворец бракосочетания №2 — изысканный особняк в стиле петербургского классицизма на тихой Фурштатской улице. Торжественные залы с лепниной и паркетом создают атмосферу настоящего праздника.",
-      img: "https://cdn.poehali.dev/projects/e50b24b0-a722-4de0-9d04-bf3cec58ef05/files/d158ef94-0acd-46ba-822c-aa7a90bf0a15.jpg",
-    },
-    {
       id: "restaurant",
       label: "Банкет",
       name: "Ресторан «Эрмитаж»",
@@ -119,6 +110,15 @@ function VenueSection() {
       time: "17:00",
       description: "Исторический особняк в самом сердце Петербурга. Изысканная кухня, живая музыка, атмосфера петербургского шика — именно здесь продолжится наш праздник.",
       img: "https://cdn.poehali.dev/projects/e50b24b0-a722-4de0-9d04-bf3cec58ef05/files/ebc8ece7-dd3b-41a6-86c5-d6b92fd3b4f5.jpg",
+    },
+    {
+      id: "ceremony",
+      label: "Дворец",
+      name: "Дворец бракосочетания №2",
+      address: "Фурштатская ул., 52, Санкт-Петербург",
+      time: "19:00",
+      description: "Дворец бракосочетания №2 — изысканный особняк в стиле петербургского классицизма на тихой Фурштатской улице. Торжественные залы с лепниной и паркетом создают атмосферу настоящего праздника.",
+      img: "https://cdn.poehali.dev/projects/e50b24b0-a722-4de0-9d04-bf3cec58ef05/files/d158ef94-0acd-46ba-822c-aa7a90bf0a15.jpg",
     },
   ];
 
@@ -171,12 +171,54 @@ function VenueSection() {
 
 function TimingSection() {
   const items = [
-    { time: "17:00", event: "Прибытие гостей", desc: "Фуршет" },
-    { time: "17:45", event: "Торжественная церемония", desc: "" },
-    { time: "19:00", event: "Официальная регистрация", desc: "Дворец бракосочетания №2" },
-    { time: "20:00", event: "Банкет", desc: "" },
-    { time: "22:00", event: "Торт. Фейерверк", desc: "" },
-    { time: "23:00", event: "Завершение вечера", desc: "" },
+    {
+      time: "17:00",
+      event: "Прибытие гостей",
+      desc: "Ресторан Нева-Холл",
+      sub: "Фуршет",
+      icon: "🥂",
+      iconLabel: "Фуршет",
+    },
+    {
+      time: "17:45",
+      event: "Торжественная церемония",
+      desc: "Ресторан Нева-Холл",
+      sub: "",
+      icon: "💐",
+      iconLabel: "",
+    },
+    {
+      time: "19:00",
+      event: "Официальная регистрация",
+      desc: "Дворец бракосочетания №2",
+      sub: "",
+      icon: "💍",
+      iconLabel: "",
+    },
+    {
+      time: "20:00",
+      event: "Банкет",
+      desc: "Ресторан Нева-Холл",
+      sub: "",
+      icon: "🍽️",
+      iconLabel: "",
+    },
+    {
+      time: "22:00",
+      event: "Торт. Фейерверк",
+      desc: "",
+      sub: "",
+      icon: "🎆",
+      iconLabel: "",
+    },
+    {
+      time: "23:00",
+      event: "Завершение вечера",
+      desc: "",
+      sub: "",
+      icon: "✨",
+      iconLabel: "",
+    },
   ];
 
   return (
@@ -186,7 +228,7 @@ function TimingSection() {
 
         <div className="relative mt-4">
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[hsl(44,70%,62%,0.2)] via-[hsl(44,70%,62%,0.6)] to-[hsl(44,70%,62%,0.2)]" />
-          
+
           {items.map((item, i) => (
             <motion.div
               key={i}
@@ -198,11 +240,26 @@ function TimingSection() {
             >
               <div className={`flex-1 ${i % 2 === 0 ? "text-right pr-10" : "text-left pl-10"}`}>
                 <span className="font-serif text-[hsl(44,70%,62%)] text-2xl">{item.time}</span>
-                <h4 className="text-white font-light tracking-wide mt-1">{item.event}</h4>
-                <p className="text-white/50 text-xs mt-1">{item.desc}</p>
+                <h4 className="text-white font-light tracking-wide mt-1 text-base">{item.event}</h4>
+                {item.desc && (
+                  <p className="text-[hsl(44,55%,58%)] text-xs mt-0.5 tracking-wide">{item.desc}</p>
+                )}
+                {item.sub && (
+                  <p className="text-white/40 text-base mt-0.5">{item.sub}</p>
+                )}
               </div>
 
-              <div className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[hsl(44,70%,62%)] border-2 border-[hsl(220,15%,12%)] shadow-lg shadow-[hsl(44,70%,62%,0.4)]" />
+              {/* Animated icon in center */}
+              <motion.div
+                className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center w-9 h-9 rounded-full bg-[hsl(220,15%,18%)] border border-[hsl(44,70%,62%,0.6)] shadow-lg shadow-[hsl(44,70%,62%,0.2)] text-base z-10"
+                initial={{ scale: 0, rotate: -30 }}
+                whileInView={{ scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", stiffness: 260, damping: 18, delay: i * 0.1 + 0.2 }}
+                whileHover={{ scale: 1.25, rotate: 10 }}
+              >
+                {item.icon}
+              </motion.div>
 
               <div className="flex-1" />
             </motion.div>

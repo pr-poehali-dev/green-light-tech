@@ -186,7 +186,7 @@ export default function Hero() {
           <div className="h-px w-16 bg-gradient-to-r from-transparent to-[hsl(44,70%,62%)]" />
           <span className="text-[hsl(44,70%,70%)] text-lg">♦</span>
           {/* Dusty-blue label */}
-          <span className="text-[hsl(210,35%,75%)] uppercase tracking-[0.4em] text-xs">Save the Date</span>
+          <span className="text-[hsl(44,65%,72%)] uppercase tracking-[0.4em] text-xs">Save the Date</span>
           <span className="text-[hsl(44,70%,70%)] text-lg">♦</span>
           <div className="h-px w-16 bg-gradient-to-l from-transparent to-[hsl(44,70%,62%)]" />
         </motion.div>
@@ -196,22 +196,20 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3 }}
-          className="font-serif text-6xl md:text-8xl lg:text-9xl text-white font-light leading-tight tracking-wide"
+          className="font-script text-7xl md:text-9xl lg:text-[10rem] text-white leading-tight"
         >
           Василий
-          <br />
-          <span className="text-[hsl(44,70%,70%)]">&</span>
-          <br />
+          <span className="text-[hsl(44,70%,70%)] mx-3">&</span>
           Мария
         </motion.h1>
 
-        {/* Surname in dusty blue */}
+        {/* Surname — gold, large */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.8 }}
-          className="font-serif text-xl md:text-2xl mt-4 tracking-[0.2em] italic"
-          style={{ color: "hsl(210,40%,78%)" }}
+          className="font-script text-4xl md:text-5xl lg:text-6xl mt-2"
+          style={{ color: "hsl(44,70%,72%)" }}
         >
           Строгановы
         </motion.p>
@@ -226,8 +224,7 @@ export default function Hero() {
           <p className="text-[hsl(44,70%,70%)] uppercase tracking-[0.5em] text-sm">
             1 сентября 2026
           </p>
-          {/* City in dusty blue */}
-          <p className="text-sm mt-1 tracking-widest uppercase" style={{ color: "hsl(210,35%,72%)" }}>
+          <p className="text-[hsl(44,55%,62%)] text-sm mt-1 tracking-widest uppercase">
             Санкт-Петербург
           </p>
         </motion.div>
