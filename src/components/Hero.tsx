@@ -92,6 +92,53 @@ const particles = [
   { delay: 3, left: "88%", size: 7, type: "pearl" as const },
 ];
 
+function MusicButton() {
+  const [playing, setPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+    audioRef.current.loop = true;
+    audioRef.current.volume = 0.4;
+    return () => {
+      audioRef.current?.pause();
+    };
+  }, []);
+
+  const toggle = () => {
+    if (!audioRef.current) return;
+    if (playing) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setPlaying(!playing);
+  };
+
+  return (
+    <motion.button
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 2.5 }}
+      onClick={toggle}
+      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-2.5 bg-black/40 backdrop-blur-md border border-white/20 text-white text-xs uppercase tracking-widest hover:bg-black/60 transition-all duration-300 rounded-full"
+    >
+      {/* Animated bars when playing */}
+      <span className="flex items-end gap-0.5 h-3">
+        {[1, 2, 3].map((i) => (
+          <motion.span
+            key={i}
+            className="block w-0.5 bg-[hsl(44,70%,70%)] rounded-full"
+            animate={playing ? { height: ["4px", "12px", "4px"] } : { height: "4px" }}
+            transition={{ duration: 0.6, delay: i * 0.15, repeat: Infinity, ease: "easeInOut" }}
+          />
+        ))}
+      </span>
+      {playing ? "Пауза" : "Музыка"}
+    </motion.button>
+  );
+}
+
 export default function Hero() {
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -116,6 +163,9 @@ export default function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
       </motion.div>
+
+      {/* Music button */}
+      <MusicButton />
 
       {/* Floating particles */}
       {particles.map((p, i) => (
